@@ -1,0 +1,19 @@
+<view class="container">
+<view class='header'>
+<image class="plus" src="/image/home.png"></image>
+<input class="new-todos" type="text" placeholder="Anything here..." value="{{input}}" bindchange="addTodoHandle"  />
+</view>
+<view class="todos">
+ <view class="item [{item.completed? 'completed':''}]" wx:for="{{todos}}">
+ <icon class="checkbox" wx:key="{{ index }}" bindtap="changeCompleted" data-index="{{ index }}" type="{{item.completed ? 'success':'circle'}}"></icon>
+ <text class="name">{{item.name}}</text>
+ <icon class="remove" bindtap="removeTodos" data-index="{{ index }}" type="clear" size="16"></icon>
+</view>
+</view>
+<view class="footer">
+   <text class="btn" bindtap="toggleCompleted">toggle all</text>
+   <text class="btn">{{todos.length}} itemsleft</text>
+   <text class="btn" bindtap="clearAllCompleted">clear all completed</text>
+</view>
+
+</view>
